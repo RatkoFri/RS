@@ -1,4 +1,4 @@
-# 5. WEMOS D1: osnove
+# 5. WEMOS D1: Uvod
 
 Na tokratni vaji se bomo spoznali z delom v razvojnem okolju Arduino IDE in naložili program na Wemos D1 mini čip. 
 
