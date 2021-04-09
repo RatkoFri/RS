@@ -125,7 +125,7 @@ In the function  ``` loop()```, we write code that implements the assignment, fo
 
 1. Function setup ([Link](https://www.arduino.cc/reference/en/language/structure/sketch/setup/))
 2. Function loop ([Link](https://www.arduino.cc/reference/en/language/structure/sketch/loop/))
-3. Serial communication ([Link1](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin)) ([Link2](https://www.arduino.cc/reference/en/language/functions/communication/serial/println)
+3. Serial communication ([Link1](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin)) ([Link2](https://www.arduino.cc/reference/en/language/functions/communication/serial/println))
 
 ## 5.3 General purpose Input Output (GPIO)
 
