@@ -124,7 +124,7 @@ V vsakem Arduino programu razlikujemo dva dela:
 
 1. Funkcija setup ([Povezava](https://www.arduino.cc/reference/en/language/structure/sketch/setup/))
 2. Funkcija loop ([Povezava](https://www.arduino.cc/reference/en/language/structure/sketch/loop/))
-3. Serijska komunikacija ([Povezava1](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin)) ([Povezava2](https://www.arduino.cc/reference/en/language/functions/communication/serial/println)
+3. Serijska komunikacija ([Povezava1](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin)) ([Povezava2](https://www.arduino.cc/reference/en/language/functions/communication/serial/println))
 
 ## 5.3 Splošnonamenski vhod/izhod
 
