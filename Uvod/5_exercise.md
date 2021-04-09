@@ -174,7 +174,7 @@ digitalWrite(pinOut,outputValue);
 
 ### Simple example
 
-The following example illustrates the usage of functions ```pinMode(pin, mode)```, ```digitalRead()```  in ```digitalWrite()```. In the example, we first read the GPIO *inPin* and write its state to the output GPIO *outPin*. 
+The following example illustrates the usage of functions ```pinMode(pin, mode)```, ```digitalRead()```  and ```digitalWrite()```. In the following example, we first read the GPIO *inPin* and write its state to the output GPIO *outPin*. 
 
 
 ```c
