@@ -31,7 +31,6 @@ Neke lastnosti WeMos D1 mini čipa:
 | 5V         | 5 V                                 | -           |
 | 3V3        | 3,3 V                               | 3,3 V       |
 | RST        | Reset                               | RST         |
-||||
 
 ## 5.1 Arduino IDE in ESP8266
 
@@ -118,7 +117,7 @@ V vsakem Arduino programu razlikujemo dva dela:
 | uint64_t, unsigned long  | Nepredznačenih osem bajtov | 64                |
 | Int64_t, long            | Predznačenih osem bajtov   | 64                |
 | float                    | Zapis v plavajoči vejici   | 32                |
-||||
+
 
 
 ### Dodatni materiali:
@@ -192,7 +191,7 @@ void loop() {
 }
 ```
 
-Dodatni materiali:
+### Dodatni materiali:
 1. Nastavitev pinov ([Povezava](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/))
 2. Branje vhodnih pinov ([Povezava](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/))
 3. Nastavljanje izhodnih pinov ([Povezava](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)) 
@@ -267,4 +266,7 @@ uporabo:
   *  zakasnitve (delay()),
   *  z uporabo programske prekinitve (Ticker).
 
+### Napotki
+
+Vgrajena LED lučka je povezana s pinom 2 mikrokrmilnika ESP8266
 
