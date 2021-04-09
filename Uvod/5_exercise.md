@@ -1,76 +1,74 @@
-# 5. WEMOS D1: osnove
+# 5. WEMOS D1: basics
 
-Na tokratni vaji se bomo spoznali z delom v razvojnem okolju Arduino IDE in naložili program na Wemos D1 mini čip. 
+In this exercise, we will get to know Arduino IDE, and we will load our first program on the WeMos D1 board.
 
-Neke lastnosti WeMos D1 mini čipa:
+Some features of WeMos D1 board:
 
-* Mikrokrmilnik: ESP8266
-* Frekvenca: 80 MHz (160 MHz)
+* Microcontroller: ESP8266
+* Frequency: 80 MHz (160 MHz)
 * Flash: 4 MB
-* Delovna napetost: 3,3 V
-* Digitalni vhodi in izhodi: 11
-* Analogni vhod: 1 (napetost <= 3,2 V)
+* Supply voltage: 3,3 V
+* Digital inputs outputs: 11
+* Analogue inputs: 1 (napetost <= 3,2 V)
 
-### Povezljivost WeMos D1 mini 
+### WeMos D1 mini connection  
 
-| Wemos Pin  | Funkcija                            | ESP8266 Pin |
+| Wemos Pin  | Function                            | ESP8266 Pin |
 |------------|-------------------------------------|-------------|
-| TX         | TXD (Pošiljanje podatkov)           | TXD         |
-| RX         | RXD (Sprejem podatkov)              | RXD         |
-| A0         | Analogni vhod, <= 3,2 V             | A0          |
-| D0         | IO (Vhod/Izhod)                     | GPIO16      |
-| D1         | IO, SCL (I2C komunikacija)          | GPIO5       |
-| D2         | IO, SDA (I2C komunikacija)          | GPIO4       |
-| D3         | IO, z 10k pull-up uporom            | GPIO0       |
-| D4         | IO, z 10k pull-up uporom, LED dioda | GPIO2       |
-| D5         | IO, SCK (SPI komunikacija)          | GPIO14      |
-| D6         | IO, MISO (SPI komunikacija)         | GPIO12      |
-| D7         | IO, MOSI (SPI komunikacija)         | GPIO13      |
-| D8         | IO, z 10k pull-down uporom          | GPIO15      |
-| G          | Ground (ozemljitev)                 | GND         |
+| TX         | TXD (Sending data       )           | TXD         |
+| RX         | RXD (Receiving data)              | RXD         |
+| A0         | Analogue input, <= 3,2 V             | A0          |
+| D0         | IO (Input/Output)                     | GPIO16      |
+| D1         | IO, SCL (I2C communication)          | GPIO5       |
+| D2         | IO, SDA (I2C communication)          | GPIO4       |
+| D3         | IO, with 10k pull-up resistor            | GPIO0       |
+| D4         | IO, with 10k pull-up resistor, LED dioda | GPIO2       |
+| D5         | IO, SCK (SPI communication)          | GPIO14      |
+| D6         | IO, MISO (SPI communication)         | GPIO12      |
+| D7         | IO, MOSI (SPI communication)         | GPIO13      |
+| D8         | IO, with 10k pull-down resistor          | GPIO15      |
+| G          | Ground                  | GND         |
 | 5V         | 5 V                                 | -           |
 | 3V3        | 3,3 V                               | 3,3 V       |
 | RST        | Reset                               | RST         |
-||||
 
-## 5.1 Arduino IDE in ESP8266
 
-### Prenos zadnje verzije:
+## 5.1 Arduino IDE and ESP8266
+
+### Download the latest versions:
   
-  - *[Link za prenos](https://www.arduino.cc/en/Main/Software)*
+  - *[Download link](https://www.arduino.cc/en/Main/Software)*
     - Windows:
-      - Na prenosnik si namestite »Windows app«
+      - Set »Windows app« on PC
 
 
-### Nastavitve serijskega porta
+### Serial port set-up
 
-- Linux (npr. Ubuntu):
-  -  Shell ukaz:  `sudo adduser $USER dialout`
-  -  Nato morate ponovno zagnati računalnik.
+- Linux (e.g. Ubuntu):
+  -  Shell command:  `sudo adduser $USER dialout`
+  -  After that, you need to restart PC.
 
 ### Arduino IDE
 
 <p align="center">
-    <img  src="./figures/arduino_slo.png" width="300">
+    <img  src="../figures/arduino_eng.png" width="600">
 </p>
 
 ### Namestitev dodatne knjižnice:
 
-  - Odprete *Arduino IDE -> File -> Preferences ->
+  - Open *Arduino IDE -> File -> Preferences ->
 Settings -> "Additional Boards Manager URLs:"*
-(dodate link:)
+(Add link:)
   **http://arduino.esp8266.com/stable/package_esp8266com_index.json**
 - *Arduino IDE -> Tools -> Board: "\*" -> Board
-Manager ->* (polje za iskanje:) esp8266 -> klik
-na rezultat: "*esp8266 by ESP8266 Comunity"
--> Install* (samodejno izbere najnovejšo verzijo,
-počakate da se namesti) -> *Close*
+Manager ->* (search field:) esp8266 -> select
+ "*esp8266 by ESP8266 Comunity"
+-> Install* (By default, the program chooses the latest version) -> *Close*
 
-### Namestitev dodatne knjižnice:
+### Setting additional libraries:
 
 - *Arduino IDE -> Tools -> Board: "\*" -> Wemos D1 R2 & mini*
-- Vse, kar je označeno z \* so privzete vrednosti in jih ni
-potrebno spreminjati
+- Everything that is marked with * is default values. You don't need to change them
 - Arduino IDE -> Tools:
   - \* Flash Size: "4M(1M SPIFFS)"
   - \* Debug port: "Disabled"
@@ -84,67 +82,70 @@ potrebno spreminjati
 
 ```c
 void setup() {
-  // Del kode, ki se izvaja samo enkrat
+  // This part only executes once 
 
-  // primer serijske komunikacije
-  Serial.begin(115200); 		// Nastavljanje serijske komunikacije
-  Serial.println("Hello from setup()"); // Izpis na serijski terminal
+  // Example of serial communication
+  Serial.begin(115200); 		// Speed of serial communication
+  Serial.println("Hello from setup()"); // Print on serial terminal
 }
 
 
 void loop() {
-  // Del kode ki se izvaja ves čas (v neskončnost)
+  // This part executes in an infinite loop 
 
-  Serial.println("Hello from loop()"); // Izpis na serijski terminal
+  Serial.println("Hello from loop()"); //  Print on serial terminal
 }
 
 ```
 
-V vsakem Arduino programu razlikujemo dva dela:
+Every Arduino program has two parts:
 
-1. Funkcija ``` setup()``` se izvaja samo enkrat ob zagonu programa. V večini programa uporabljamo funckijo ``` setup()``` za nastavljanje pinov, serijske komunikacije in zunanjih naprav. Lahko nastavljamo tudi prekinitve, hardverske ali softverske. V zgornjem programu smo nastavili hitrost serijske komunikacije na 115200 baudov na sekundo. Poleg tega smo na serijskem terminalu izpisali "Hello from setup()". 
-2. Funkcija ``` loop()``` se izvaja v neskončnost. V funkciji ``` loop()``` pišemo kodo, ki obravnava nalogo, npr. nastavljanje in branje pinov, pošiljanje in sprejmanje podatkov preko I2C naprave, zagon servo-motorja, ipd. V našem primeru izpisujemo "Hello from loop()" na serijski terminal. 
+1. Function ``` setup()``` executes only once, at the start of the program. In most of the programs, we use the function  ``` setup()``` or pin assignment, serial communication and peripheral devices. We can also set the interrupts that come from hardware or software. In the previous example, we set the speed of the serial communication at 11520 baud per second. 
+Besides that, we write the string  "Hello from setup()" on the serial terminal.\
 
-### Tipi spremenljivk
+2. Function ``` loop()``` consecutively. 
+In the function  ``` loop()```, we write code that implements the assignment, for example, reading and writing to pins,  sending and receiving data over I2C, controlling servo motors, etc. In our example, we write the string "Hello from loop()" on the serial terminal.
 
-| Tip                      | Opis                       | Dolžina (v bitih) |
+### Variable types
+
+| Type                     | Description                      | Length in bits |
 |--------------------------|----------------------------|-------------------|
-| uint8_t, unsigned char   | Nepredznačen bajt          | 8                 |
-| int8_t, char             | Predznačen bajt            | 8                 |
-| uint16_t, unsigned short | Nepredznačena dva bajta    | 16                |
-| int16_t, short           | Predznačena dva bajta      | 16                |
-| uint32_t, unsigned int   | Nepredznačeni štirje bajti | 32                |
-| int32_t, int             | Predznačeni štirje bajti   | 32                |
-| uint64_t, unsigned long  | Nepredznačenih osem bajtov | 64                |
-| Int64_t, long            | Predznačenih osem bajtov   | 64                |
-| float                    | Zapis v plavajoči vejici   | 32                |
-||||
+| uint8_t, unsigned char   | Unsigned byte          | 8                 |
+| int8_t, char             | Signed byte            | 8                 |
+| uint16_t, unsigned short | Unsigned two bytes    | 16                |
+| int16_t, short           | Signed two bytes      | 16                |
+| uint32_t, unsigned int   | Unsigned four bytes | 32                |
+| int32_t, int             | Signed four bytes   | 32                |
+| uint64_t, unsigned long  | Unsigned eight bytes | 64                |
+| Int64_t, long            | Signed eight bytes   | 64                |
+| float                    | Floating point   | 32                |
 
 
-### Dodatni materiali:
+### Additional materials:
 
-1. Funkcija setup ([Povezava](https://www.arduino.cc/reference/en/language/structure/sketch/setup/))
-2. Funkcija loop ([Povezava](https://www.arduino.cc/reference/en/language/structure/sketch/loop/))
-3. Serijska komunikacija ([Povezava1](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin)) ([Povezava2](https://www.arduino.cc/reference/en/language/functions/communication/serial/println)
+1. Function setup ([Link](https://www.arduino.cc/reference/en/language/structure/sketch/setup/))
+2. Function loop ([Link](https://www.arduino.cc/reference/en/language/structure/sketch/loop/))
+3. Serial communication ([Link1](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin)) ([Link2](https://www.arduino.cc/reference/en/language/functions/communication/serial/println)
 
-## 5.3 Splošnonamenski vhod/izhod
+## 5.3 General purpose Input Output (GPIO)
 
-Pri uporabi vhodno-izhodnih (I/O) pinov moramo najprej določiti vloge pinov. Na tokratni vaji bomo pine uporabljali kot digitalni vhod ali izhod. 
+
+Before we start using GPIO, we need to assign their roles: input or output.  
 
 ### Vhod 
-Za nastavitev načina delovanja (mode) pina uporabljamo naslednji ukaz:
+To define the GPIO role, we use the following function:
 
 ```c
 pinMode(pin, mode)
 ```
-kjer *pin* predstavlja številko pina, ki ga želimo uporabiti, *mode* pa določa način delovanja pina:
+where *pin* represent pin number, which we want to use, *mode* defines GPIO role
 
-* ```INPUT```  	-> nastavimo izbrani pin kot vhod
-* ```INPUT_PULLUP```  	-> nastavimo izbrani pin kot vhod s pull-up (dvižnim) uporom
-* ```OUTPUT```  	-> nastavimo izbrani pin kot izhod
+* ```INPUT```  	-> GPIO is set as input
+* ```INPUT_PULLUP```  	-> GPIO is set as input with pull-up resistor
+* ```OUTPUT```  	-> GPIO is set as output
 
-Stanje na vhodnih pinih lahko beremo s pomočjo funkcije  ```digitalRead()```.
-Če želimo prebrati stanje na vhodnem pinu *pinIn*, lahko uporabimo naslednjo kodo:
+We can read the GPIO input with the function.  ```digitalRead()```.
+The following code illustrates the usage of the function ```digitalRead()```:
 
 ```c
 ...
@@ -155,10 +156,11 @@ pinState = digitalRead(pinIn);
 ...
 ```
 
-Po ukazu se stanje na vhodu pina *pinIn* shrani v spremenljivko *pinState*.
+After the execution, the state of GPIO *pinIn* is saved in variable *pinState*.
 
 
-S pomočjo funkcije ```digitalWrite()``` nastavimo podani pin na podano vrednost. Če želimo nastaviti visoko stanje (1) na pin *pinOut*, lahko uporabimo naslednjo kodo:
+With the function ```digitalWrite()```, we can set the chosen GPIO on certain value (0 or 1). The following code illustrates the usage of function ```digitalWrite()```
+
 
 ```c
 ...
@@ -170,9 +172,9 @@ digitalWrite(pinOut,outputValue);
 
 ```
 
-### Enostaven primer
+### Simple example
 
-Naslednji program ilustrira uporabo funkcij ```pinMode(pin, mode)```, ```digitalRead()```  in ```digitalWrite()```. Stanje vhodnega pina *inPin* se prenese na izhodni pin.
+The following example illustrates the usage of functions ```pinMode(pin, mode)```, ```digitalRead()```  in ```digitalWrite()```. In the example, we first read the GPIO *inPin* and write its state to the output GPIO *outPin*. 
 
 
 ```c
@@ -180,28 +182,28 @@ int outPin = 13;
 int inPin = 7;    
 int val = 0;     
 
-void setup() {              // Nastavljanje pinov se izvaja v funkciji setup
-  pinMode(outPin, OUTPUT);  // Postavimo outPin kot izhod
-  pinMode(inPin, INPUT);    // Postavimo inPin kot vhod
+void setup() {              // We assigned GPIO roles in the setup() function
+  pinMode(outPin, OUTPUT);  // We set outPin as output
+  pinMode(inPin, INPUT);    // We set inPin as input
 }
 
 void loop() {
-  val = digitalRead(inPin);   // Beremo vhodni pin
-  digitalWrite(outPin, val);  // Nastavimo izhodni pin
-  delay(500); 		     // Nadaljevanje zakasni za 500 ms
-}
+  val = digitalRead(inPin);   // We read the inPin
+  digitalWrite(outPin, val);  // We write the outPin
+  delay(500); 		     // Software delay 
 ```
 
-Dodatni materiali:
-1. Nastavitev pinov ([Povezava](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/))
-2. Branje vhodnih pinov ([Povezava](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/))
-3. Nastavljanje izhodnih pinov ([Povezava](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)) 
-4. Zakasnitev  ([Povezava](https://www.arduino.cc/reference/en/language/functions/time/delay/)) 
+### Additional materials:
+
+1. GPIO assignments ([Link](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/))
+2. Read GPIO ([Link](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/))
+3. Write GPIO ([Link](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)) 
+4. Delay  ([Link](https://www.arduino.cc/reference/en/language/functions/time/delay/)) 
 
 
-## 5.4 Periodični klic funkcij
+## 5.4 Repeating functions call
 
-Objekti *Ticker* omogočajo periodično klicanje poljubne funkcije. Naslednji primer ilustrira uporabo Ticker objekta.
+ *Ticker* objects enable  repeating call of functions. Following example illustrates the usage of *Ticker* objects.
 
 ```c
 #include <Ticker.h>  // Ticker knjižnica
@@ -213,12 +215,12 @@ Ticker blinker;
 int val;
 
 //=======================================================================
-void spremeni_stanje()
+void change_state()
 {
   digitalWrite(OUT, 1);  
-  delay(1000);           	// Počakamo sekundo
+  delay(1000);           	// Wait 1s
   digitalWrite(OUT, 0);   
-  delay(1000);                	// Počakamo sekundo 
+  delay(1000);                	// Wait 1s 
 }
 //=======================================================================
 void setup()
@@ -226,10 +228,10 @@ void setup()
     Serial.begin(115200);
     Serial.println("");
  
-    pinMode(OUT,OUTPUT);  	// nastavimo OUT pin kot izhod
+    pinMode(OUT,OUTPUT);  	// Set GPIO OUT as output
  
-    blinker.attach(0.5, spremeni_stanje);  // Funkcija spremeni_stanje
-                                           // se kliče vsakih 0.5 s
+    blinker.attach(0.5, change_state);  // Program executes change_state
+                                        // every 0.5 s
 }
 
 //=======================================================================
@@ -238,36 +240,30 @@ void loop()
 }
 ```
 
-V prejšnjem programu si je najpomembneje zapomniti dve stvari:
+We need to remember two things:
 
-1. Deklarirati objekt *Ticker*
+1. Declare the object *Ticker*
    ```c
    Ticker blinker; 
    ``` 
-2. Nastaviti objekt *ticker*, določiti funkcijo, ki se bo periodično klicala 
+2. Set the object *ticker*. Pass the name of the function, which will be periodically executed. 
     ```c
-    blinker.attach(0.5, spremeni_stanje);   // Funkcija spremeni_stanje
-                                            // se kliče vsakih 0.5 s
+    blinker.attach(0.5, change_state);   // Program executes change_state
+                                         // every 0.5 s
 
    ```
-    Funkcija blink_led1() se kliče vsakih 0.5 sekunde.
+    Program executes change_state every 0.5 s.
 
 
 
-## 5.5 Domača naloga 
+## 5.5 Home assignment
 
-* Vgrajena LED lučka naj pri podani frekvenci petkrat
-utripne, nato pa frekvenco povečate za 1 Hz.
-Začetna frekvenca je 1 Hz, povečujete pa vse do 5
-Hz, nato pa vse ponovite. Stanje izpisujte preko
-serijskega vmesnika. Ustvarite dva samostojna
-programa (projekta), efekt pa implementirajte z
-uporabo:
+* The built-in LED light should blink five times at the given frequency. After that, increase the frequency by 1 Hz. The starting frequency is 1 Hz, and increase it up to 5Hz, then repeat everything. Print the status via the serial terminal. Create two stand-alone programs (projects), and implement the effect with the use of :
 
-  *  zakasnitve (delay()),
-  *  z uporabo programske prekinitve (Ticker).
+  *  Software delay (delay()),
+  *  Ticker objects (Ticker).
 
 
-### Napotki
+### Tip: 
 
-Vgrajena LED lučka je povezana s pinom 2 mikrokrmilnika ESP8266
+The built-in LED light is connected to GPIO pin 2 of ESP8266.
