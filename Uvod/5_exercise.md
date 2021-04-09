@@ -1,4 +1,4 @@
-# 5. WEMOS D1: basics
+# 5. WEMOS D1: Introduction
 
 In this exercise, we will get to know Arduino IDE, and we will load our first program on the WeMos D1 board.
 
