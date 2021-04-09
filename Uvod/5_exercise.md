@@ -54,7 +54,7 @@ Some features of WeMos D1 board:
     <img  src="../figures/arduino_eng.png" width="600">
 </p>
 
-### Namestitev dodatne knjižnice:
+### Setting up additional libraries:
 
   - Open *Arduino IDE -> File -> Preferences ->
 Settings -> "Additional Boards Manager URLs:"*
