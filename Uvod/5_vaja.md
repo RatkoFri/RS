@@ -51,7 +51,7 @@ Neke lastnosti WeMos D1 mini čipa:
 ### Arduino IDE
 
 <p align="center">
-    <img  src="../figures/arduino_slo.png" width="450">
+    <img  src="../figures/arduino_slo.png" width="600">
 </p>
 
 ### Namestitev dodatne knjižnice:
