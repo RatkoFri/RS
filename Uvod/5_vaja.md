@@ -209,15 +209,13 @@ Ticker blinker;
  
 #define OUT 2  
 
-int val;
+int val = 0;
 
 //=======================================================================
 void spremeni_stanje()
 {
-  digitalWrite(OUT, 1);  
-  delay(1000);           	// Počakamo sekundo
-  digitalWrite(OUT, 0);   
-  delay(1000);                	// Počakamo sekundo 
+  val = ~val;
+  digitalWrite(OUT, val);  
 }
 //=======================================================================
 void setup()
@@ -225,7 +223,7 @@ void setup()
     Serial.begin(115200);
     Serial.println("");
  
-    pinMode(OUT,OUTPUT);  	// nastavimo OUT pin kot izhod
+    pinMode(OUT,OUTPUT);    // nastavimo OUT pin kot izhod
  
     blinker.attach(0.5, spremeni_stanje);  // Funkcija spremeni_stanje
                                            // se kliče vsakih 0.5 s
