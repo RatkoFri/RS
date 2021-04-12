@@ -212,15 +212,13 @@ Ticker blinker;
  
 #define OUT 2  
 
-int val;
+int val = 0;
 
 //=======================================================================
-void change_state()
+void spremeni_stanje()
 {
-  digitalWrite(OUT, 1);  
-  delay(1000);           	// Wait 1s
-  digitalWrite(OUT, 0);   
-  delay(1000);                	// Wait 1s 
+  val = ~val;
+  digitalWrite(OUT, val);  
 }
 //=======================================================================
 void setup()
@@ -228,10 +226,10 @@ void setup()
     Serial.begin(115200);
     Serial.println("");
  
-    pinMode(OUT,OUTPUT);  	// Set GPIO OUT as output
+    pinMode(OUT,OUTPUT);    // nastavimo OUT pin kot izhod
  
-    blinker.attach(0.5, change_state);  // Program executes change_state
-                                        // every 0.5 s
+    blinker.attach(0.5, spremeni_stanje);  // Funkcija spremeni_stanje
+                                           // se kliče vsakih 0.5 s
 }
 
 //=======================================================================
