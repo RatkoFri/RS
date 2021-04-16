@@ -130,19 +130,19 @@ SDA in SDC pins of PCF8574AN is connected to pins 12 and 14, respectively.
 
 
 <p align="center">
-    <img  src="./figures/plosca.png" width="300">
+    <img  src="../figures/plosca.png" width="300">
 </p>
 
 On I2C bus, PCF8574AN has address 0x20 (hexadecimal) or 32 (decimal). Lower four pins are connected with LEDs, while buttons are connected on the upper four pins, as presented in Figure:
 
 <p align="center">
-    <img  src="./figures/pcf.png" width="300">
+    <img  src="../figures/pcf.png" width="300">
 </p>
 
 PCF8574AN consists of one 8-bit register, which allows controlling of LEDs and buttons. The seventh bit of register corresponds to the pin P7, the sixth bit of register corresponds to P6, etc. If we want to turn off/turn on LEDs, we write appropriate values on the lower four bits or register. On the other hand, if we want to know button states, we read the register and only consider only the upper 4 bits. 
 
 <p align="center">
-    <img  src="./figures/reg.svg" width="400">
+    <img  src="../figures/reg.svg" width="400">
 </p>
 
 
