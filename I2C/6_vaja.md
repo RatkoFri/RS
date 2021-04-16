@@ -160,7 +160,7 @@ sta povezana na pina 12 in 14 mikrokrmilnika ESP8266. I/O port PCF8574AN se naha
 spodnji strani tiskanega vezja in s pomočjo njega krmilimo zunanje LED in gumbe:
 
 <p align="center">
-    <img  src="./figures/plosca.png" width="300">
+    <img  src="../figures/plosca.png" width="300">
 </p>
 
 Na I2C vodilu ima PCF8574AN naslov 0x20 po šestnajstiško ali 32 po desetiško. 
@@ -168,7 +168,7 @@ Na spodnjih 4 pinih PCF8574AN porta so povezane LED (P0 – P3), tipke pa so pov
 zgornjih 4 pinih, kot na sliki:
 
 <p align="center">
-    <img  src="./figures/pcf.png" width="300">
+    <img  src="../figures/pcf.png" width="300">
 </p>
 
 PCF8574AN vsebuje samo en 8-bitni register, s pomočjo katerega krmilimo povezane LED in gumbe. 
@@ -178,7 +178,7 @@ preberemo register in upoštevamo samo zgornje 4 bite. Ko je PCF8574AN povezan n
 lahko pišemo in beremo njegov register s pomočjo I2C komunikacije.
 
 <p align="center">
-    <img  src="./figures/reg.svg" width="400">
+    <img  src="../figures/reg.svg" width="400">
 </p>
 
 
