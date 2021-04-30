@@ -6,7 +6,7 @@ In this exercise, we will get to know the module MPU-9250, which we can use as a
 
 
 <p align="center">
-    <img  src="./figures/gy91.png" width="400">
+    <img  src="../figures/gy91.png" width="400">
 </p>
 
 
@@ -30,7 +30,7 @@ When we want to initialize sensors, we need to write values to specific sensor r
 ## Properties of MPU-9250 sensor
 
 <p align="center">
-    <img  src="./figures/mp9250.png" width="200">
+    <img  src="../figures/mp9250.png" width="200">
 </p>
 
 MPU-9250 sensor consists of three different sensors:
@@ -136,7 +136,7 @@ The following example illustrates the reading of register block (size NO_BYTE) f
 
 
 
-```arduino 
+```c
 // Address the I2C device
 Wire.beginTransmission(I2C_DEV_ADDRESS);
 // Specify the required sensor address
