@@ -10,7 +10,7 @@ In this exercise, we will get to know the module MPU-9250, which can be used as 
 </p>
 
 
-Besides the MPU-9250 sensor (marked with yellow colour), the GY-91 board includes the BMP850 temperature sensors (marked with red colour). We will more talk about the BMP850 in the following exercises. The focus of the sixt exercise is the MPU-9250 sensor. 
+Besides the MPU-9250 sensor (marked with yellow colour), the GY-91 board includes the BMP850 temperature sensors (marked with red colour). We will more talk about the BMP850 in the following exercises. The focus of the seventh exercise is the MPU-9250 sensor. 
 
 The measuring principle and design of specific sensors are very complex things to grasp and require knowledge from different areas.  The programmer needs only to be acquainted with the general principle of operation for a specific sensor. The most important thing to understand for him is the register map. By reading the sensor manuals or datasheet, the programmer needs to know the following:
 
