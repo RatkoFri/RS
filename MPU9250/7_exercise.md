@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this exercise, we will get to know the module MPU-9250, which we can use as an accelerometer, gyroscope and magnetometer. The MPU-9250 sensor resides on the GY-91 board (marked with blue colour).
+In this exercise, we will get to know the module MPU-9250, which can be used as an accelerometer, gyroscope and magnetometer. The MPU-9250 sensor resides on the GY-91 board (marked with blue colour).
 
 
 <p align="center">
@@ -10,21 +10,16 @@ In this exercise, we will get to know the module MPU-9250, which we can use as a
 </p>
 
 
-Besides the MPU-9250 sensor (yellow colour), the GY-91 board includes the BMP850 temperature sensors (red colour). We will more talk about the BMP850 in the following exercises. The focus of the sixt exercise is the MPU-9250 sensor. 
-
-Zgradba in notranje delovanje posameznih senzorjev sta precej kompleksna. Pri programiranju mikrokrmilnikov pa programerju vgrajenih 
-sistemov ni potrebno poznati zgradbo senzorja, dovolj je, da pozna splošni princip delovanja. Za progamerja je najpomembneje poznati 
-registrsko mapo senzorja ter namen (pomen) posameznih registrov. Drugač povedano, programer mora biti sposoben na podlagi tovarniške 
-listine senzorja spoznati:
+Besides the MPU-9250 sensor (marked with yellow colour), the GY-91 board includes the BMP850 temperature sensors (marked with red colour). We will more talk about the BMP850 in the following exercises. The focus of the sixt exercise is the MPU-9250 sensor. 
 
 The measuring principle and design of specific sensors are very complex things to grasp and require knowledge from different areas.  The programmer needs only to be acquainted with the general principle of operation for a specific sensor. The most important thing to understand for him is the register map. By reading the sensor manuals or datasheet, the programmer needs to know the following:
 
 1. Configuration registers and their usage
-2. Registers which represent sensor data
-3. How to calculate true measurements from the obtained sensor data    
+2. Registers which contain sensor data
+3. How to calculate measurements from the obtained sensor data    
 
 
-When we want to initialize sensors, we need to write values to specific sensor registers. If we want to get sensor data, we need to read specific registers. The MPU-9250 sensor is connected with ESP8266 through I2C interface, so we will use the I2C protocol to read the data from the sensor.  
+To initialize sensors, we need to write certain values to specific sensor registers. If we want to get sensor data, we need to read specific registers. The MPU-9250 sensor is connected with ESP8266 through I2C interface, so we will use the I2C protocol to read the data from the sensor.  
 
 
 ## Properties of MPU-9250 sensor
@@ -41,13 +36,13 @@ MPU-9250 sensor consists of three different sensors:
 
 MPU-9250 properties:
 
-* 16-bit analogue-digital converters
-* Programabile digital filters
+* 16-bit analog digital (AD) converters
+* Pogrammable digital filters
 * Precise clock
 * Embedded temperature sensor
 * Communication: I2C and SPI protocol
 * Voltage: 2.4 V to 3.6 V
-* Motion Processing
+* Motion Processing interrupt
 * **Interface: I2C (up to 3,4 MHz)**
 * **I2C address: 0b1110110**
 
@@ -69,7 +64,7 @@ Properties:
 
 ### Register map 
 
-| Address(HEX) | Address(DEC) |      Tegister name    |      Usage     |
+| Address(HEX) | Address(DEC) |      Register name    |      Description     |
 |:-----------:|:-----------:|:--------------:|:--------------:|
 |    0x3B   |      59     | ACCEL_XOUT_H | X-axis acceleration - upper byte|
 |    0x3C   |      60     | ACCEL_XOUT_L | X-axis acceleration - lower byte|
@@ -97,7 +92,7 @@ Gyroscopes, or gyros, are devices that measure or maintain rotational motion. ME
 
 ### Register map 
 
-| Naslov(HEX) | Naslov(DEC) |      Naziv registra     |      Namen     |
+| Address(HEX) | Address(DEC) |      Register name    |      Description     |
 |:-----------:|:-----------:|:--------------:|:--------------:|
 |    0x43   |      67     | GYRO_XOUT_H | Angular velocity in X-axis - upper byte|
 |    0x44   |      68     | GYRO_XOUT_L | Angular velocity in X-axis - lower byte|
@@ -116,7 +111,7 @@ A magnetometer is a device that measures magnetic field or magnetic dipole momen
 (Source: [Wikipedia](https://en.wikipedia.org/wiki/Magnetometer#:~:text=A%20magnetometer%20is%20a%20device,field%20at%20a%20particular%20location.))
 
 
-Lastnosti magnetometra:
+Properties:
 
 * Hall's effect
 * 14-bit resolution
@@ -124,14 +119,14 @@ Lastnosti magnetometra:
 
 ## I2C in reading register
 
-The I2C device can have more than one register that can be read. If we want to read a specific register in I2C device, we need to do the following:
+The I2C device can have more than one register that can be read. To read a specific register in I2C device, we need to do the following:
 
 1. Address the I2C device
 2. Send the address of the required register
 
-During the following reading of the I2C device, the microcontroller will receive the value of the required register. 
+In the following read of the I2C device, the microcontroller will receive the value of the required register. 
 
-The following example illustrates the reading of register block (size NO_BYTE) from address 40:
+The following example illustrates the reading of register block of size NO_BYTE from address 40:
 
 
 
@@ -159,7 +154,7 @@ for (int q = 0; q < NO_BYTE; q++) {
 
 * With the period of 10 Hz, read the angular velocity from the MPU92-50 sensor. Based on obtained measurements, calculate the orientation angle (on all axis) and print them on the serial terminal. 
 
-* Control the external LEDs based on orientation on Z-axis:
+* Control the external LEDs based on Z-axis orientation:
     - Angle between 0° and 89° -> turn on one LED
     - Angle between 90° and 179° -> turn on two LEDs 
     - Angle between 180° and 269° -> turn on three LEDs
@@ -171,5 +166,5 @@ for (int q = 0; q < NO_BYTE; q++) {
 ### Tips:
 
 * Use Ticker to read the sensor data
-* You need to divide the sensor data with 131 (read the datasheet). The obtained value has a measurement unit in °/s (angular velocity)
-* Use variables with type float to calculate the angular velocity 
+* You need to divide the sensor data with 131 (as stated in datasheet). The obtained value has a measurement unit in °/s (angular velocity)
+* Use variables with type float to store the angular velocity 
