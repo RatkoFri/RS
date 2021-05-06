@@ -102,9 +102,9 @@ Lastnosti giroskopa:
 |    0x43   |      67     | GYRO_XOUT_H | Kotna hitrost v smeri X-osi - višji bajt|
 |    0x44   |      68     | GYRO_XOUT_L | Kotna hitrost  v smeri X-osi - nižji bajt|
 |    0x45   |      69     | GYRO_YOUT_H | Kotna hitrost  v smeri Y-osi - višji bajt|
-|    0x46   |      71     | GYRO_YOUT_L | Kotna hitrost  v smeri Y-osi - nižji bajt|
-|    0x47   |      72     | GYRO_ZOUT_H | Kotna hitrost  v smeri Z-osi - višji bajt|
-|    0x49   |      73     | GYRO_ZOUT_L | Kotna hitrost  v smeri Z-osi - nižji bajt|
+|    0x46   |      70     | GYRO_YOUT_L | Kotna hitrost  v smeri Y-osi - nižji bajt|
+|    0x47   |      71     | GYRO_ZOUT_H | Kotna hitrost  v smeri Z-osi - višji bajt|
+|    0x49   |      72     | GYRO_ZOUT_L | Kotna hitrost  v smeri Z-osi - nižji bajt|
 |||||
 
 ## Magnetometer 
