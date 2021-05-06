@@ -46,7 +46,7 @@ Lastnosti MPU-9250:
 * Napajalna napetost senzorja: od 2.4 V do 3.6 V
 * Obdelava gibanja (angl. Motion Processing)
 * **Vmesnik: I2C (do 3,4 MHz)**
-* **Določanje naslova: 0b1110110**
+* **Določanje naslova: 0b1101000**
 
 
 ## Senzor pospeška
