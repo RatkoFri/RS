@@ -44,7 +44,7 @@ MPU-9250 properties:
 * Voltage: 2.4 V to 3.6 V
 * Motion Processing interrupt
 * **Interface: I2C (up to 3,4 MHz)**
-* **I2C address: 0b1110110**
+* **I2C address: 0b1101000**
 
 
 ## Accelerometer
