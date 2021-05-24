@@ -99,7 +99,7 @@ Gyroscopes, or gyros, are devices that measure or maintain rotational motion. ME
 |    0x45   |      69     | GYRO_YOUT_H | Angular velocity in Y-axis - upper byte|
 |    0x46   |      71     | GYRO_YOUT_L | Angular velocity in Y-axis - lower byte|
 |    0x47   |      72     | GYRO_ZOUT_H | Angular velocity in Z-axis - upper byte|
-|    0x49   |      73     | GYRO_ZOUT_L | Angular velocity in Z-axis - lower byte|
+|    0x48   |      73     | GYRO_ZOUT_L | Angular velocity in Z-axis - lower byte|
 |||||
 
 ## Magnetometer 
