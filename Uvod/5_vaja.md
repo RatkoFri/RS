@@ -247,7 +247,7 @@ V prejšnjem programu si je najpomembneje zapomniti dve stvari:
                                             // se kliče vsakih 0.5 s
 
    ```
-    Funkcija blink_led1() se kliče vsakih 0.5 sekunde.
+    Funkcija blinker() se kliče vsakih 0.5 sekunde.
 
 
 
