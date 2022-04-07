@@ -266,5 +266,7 @@ uporabo:
 
 ### Napotki
 
-Vgrajena LED lučka je povezana s pinom 2 mikrokrmilnika ESP8266
+  * Vgrajena LED lučka je povezana s pinom 2 mikrokrmilnika ESP8266
+  * bliker.detach() - Odstranimo programsko prekinite
+  * Deklarirati globalno spremenljivko za štetje klicov funkcije 
 
