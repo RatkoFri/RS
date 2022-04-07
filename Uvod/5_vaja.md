@@ -65,7 +65,7 @@ na rezultat: "*esp8266 by ESP8266 Comunity"
 -> Install* (samodejno izbere najnovejšo verzijo,
 počakate da se namesti) -> *Close*
 
-### Namestitev dodatne knjižnice:
+### Namestitev boarda:
 
 - *Arduino IDE -> Tools -> Board: "\*" -> Wemos D1 R2 & mini*
 - Vse, kar je označeno z \* so privzete vrednosti in jih ni
