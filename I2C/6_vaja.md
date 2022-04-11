@@ -206,6 +206,8 @@ pritisnjena, se ustrezen bit postavi na logično 0.
 #define I2C_ADD_IO1 32
 
 Ticker tickGUMB, tickLED;
+uint8_t val;
+
 
 void beriTipke();
 void utripLED();
@@ -234,13 +236,7 @@ void setup() {
 void beriTipke(){
   // Preberi trenutno stanje tipk in ledic, stanja ledic ne želimo spreminjati.
   // Na pine, na katerih se nahajajo tipke, je potrebno zapisati logično enico.
-  Wire.requestFrom(I2C_ADD_IO1, 1);
-  uint8_t val = Wire.read() | 0xF0;
-
-  Wire.beginTransmission(I2C_ADD_IO1);
-  Wire.write(val);
-  Wire.endTransmission();
-
+ 
   // Preberemo dejansko stanje tipk
   Wire.requestFrom(I2C_ADD_IO1, 1);
   val = (~(Wire.read()) & 0xF0)>>4;
@@ -258,6 +254,7 @@ void beriTipke(){
  */
 void utripLED(){
   static uint8_t LED_stanje = 0;
+  LED_stanje = (LED_stanje + 1) % 2;
   Wire.beginTransmission (I2C_ADD_IO1);
   Wire.write(~LED_stanje);
   Wire.endTransmission();
