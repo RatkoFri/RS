@@ -258,7 +258,6 @@ void beriTipke(){
  */
 void utripLED(){
   static uint8_t LED_stanje = 0;
-  LED_stanje = (LED_stanje + 1) % 2;
   Wire.beginTransmission (I2C_ADD_IO1);
   Wire.write(~LED_stanje);
   Wire.endTransmission();
