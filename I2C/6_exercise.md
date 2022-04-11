@@ -168,54 +168,54 @@ Napotki za krmiljenje:
 
 #define I2C_ADD_IO1 32
 
-Ticker tickButton, tickLED;
+Ticker tickGUMB, tickLED;
+uint8_t val;
 
-void readButtons();
-void LedBlink();
+
+void beriTipke();
+void utripLED();
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
 
-  // Initialize I2C
+  // Inicializiramo I2C na podanih pinih
   // SDA: pin 12
   // SCL: pin 14
   Wire.begin(12,14);
-  // Set speed of I2C
+  // nastavimo frekvenco vodila na 100 kHz
   Wire.setClock(100000);
 
-  tickLED.attach_ms(500,LedBlink); // Ticker za LED blinking
-                                   
-                                
-  tickButton.attach_ms(500,readButtons); // Ticker for checking buttons
+  //tick.attach(1, posodobiParametre); 
+  tickLED.attach_ms(500,utripLED); // Ticker za utrip LED diode. 
+                                   // fukcija utripLED se kliče 
+                                   // vsake 0.5 sekunde
+  tickGUMB.attach_ms(500,beriTipke); // Ticker za utrip LED diode
 }
 
 /*
- * Function for reading buttons  
+ * Funkcija za branje vrednosti tipk  
  */
-void readButtons(){
-
-  Wire.requestFrom(I2C_ADD_IO1, 1);
-  uint8_t val = Wire.read() | 0xF0;
-
-  Wire.beginTransmission(I2C_ADD_IO1);
-  Wire.write(val);
-  Wire.endTransmission();
-
+void beriTipke(){
+  // Preberi trenutno stanje tipk in ledic, stanja ledic ne želimo spreminjati.
+  // Na pine, na katerih se nahajajo tipke, je potrebno zapisati logično enico.
+ 
+  // Preberemo dejansko stanje tipk
   Wire.requestFrom(I2C_ADD_IO1, 1);
   val = (~(Wire.read()) & 0xF0)>>4;
 
-
-  Serial.println("Button state: ");
+  // Na serijskem ekranu se izpiše 2^n, 
+  // n je zaporedna številka gumba
+  Serial.println("Stanje gumbov: ");
   Serial.print(val);
   Serial.println(" ");
 
 }
 
 /*
- * Function for LED blinking
+ * Funkcija za utripanje LED1
  */
-void LedBlink(){
+void utripLED(){
   static uint8_t LED_stanje = 0;
   LED_stanje = (LED_stanje + 1) % 2;
   Wire.beginTransmission (I2C_ADD_IO1);
