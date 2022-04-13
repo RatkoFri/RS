@@ -185,10 +185,10 @@ lahko pišemo in beremo njegov register s pomočjo I2C komunikacije.
 Napotki za krmiljenje:
 
 * Pisanje logične vrednosti 1 na P0–P3 LED ugasne, pisanje logične vrednosti 0 pa prižge:
-  *  Če želimo prižgati LED1, pošljemo 0xFE ali 0x0E
-  *  Če želimo prižgati LED2, pošljemo 0xFD ali 0x0D
-  *  Če želimo prižgati LED3, pošljemo 0xFB ali 0x0B
-  *  Če želimo prižgati LED4, pošljemo 0xF7 ali 0x07
+  *  Če želimo prižgati LED1, pošljemo 0xFE 
+  *  Če želimo prižgati LED2, pošljemo 0xFD 
+  *  Če želimo prižgati LED3, pošljemo 0xFB 
+  *  Če želimo prižgati LED4, pošljemo 0xF7 
 *  Pred branjem vrednosti tipk je treba na P4–P7 zapisati logično 1. V primeru, da je bila tipka 
 pritisnjena, se ustrezen bit postavi na logično 0.
    *  Če je gumb S1 pritisnjen, se 4. bit postavi na ničlo
