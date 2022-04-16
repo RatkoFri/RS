@@ -155,22 +155,15 @@ for (int q = 0; q < ST_BAJTOV; q++) {
 
 ## Naloga: 
 
-* S periodo 10 Hz berite vrednosti z MPU-9250 (privzeta konfiguracija) in na podlagi vrednosti žiroskopa izračunajte orientacijo po oseh 
+* S periodo 10 Hz berite vrednosti z MPU-9250 (privzeta konfiguracija) in na podlagi vrednosti pospeškometra izračunajte pospešek po oseh 
 x, y in z (bodite previdni, kaj preberete z registrov naprave, oz. katero enoto ima vrednost). Izračunane vrednosti izpisujte preko serijskega 
 monitorja.
 
-* Na podlagi orientacije okoli osi Z ustrezno krmilite tudi 4 LED diode in sicer na sledeč način:
-    - če je kot med 0° in 89°, sveti ena dioda, 
-    - če je kot med 90° in 179°, svetita dve diodi, 
-    - če je kot med 180° in 269°, svetijo tri diode,
-    - če je kot med 270° in 359°, svetijo štiri diode.
-
+* Na podlagi pospeska na X in Y osi implementirajte digitalno vodno tehtnico.
+   
 * (Opcijsko): S pomočjo dokumentacije izračunajte temperaturo v MPU-9250 vgrajenega senzorja.
 
 ### Namig:
 
 * Za periodično klicanje lahko uporabite Ticker.
-* Prebrano vrednost žiroskopa morate deliti s 131 (privzeto je nastavljen ± 250 °/sec, podrobneje je razloženo v dokumentaciji). 
-Vrednost, ki jo potem dobite, ima enoto: °/s (kotna hitrost).
-*  Ker pri računanju pogosto dobite vrednosti, ki so manjše od 1 (torej neko decimalno vrednost), računajte kotno hitrost in kot z uporabo 
-spremenljivke tipa float.
+
