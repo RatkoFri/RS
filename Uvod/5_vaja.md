@@ -67,14 +67,14 @@ počakate da se namesti) -> *Close*
 
 ### Namestitev boarda:
 
-- *Arduino IDE -> Tools -> Board: "\*" -> Wemos D1 R2 & mini*
+- *Arduino IDE -> Tools -> Board -> ESP8266 Boards  -> LOLIN (Wemos) D1 R2 & mini*
 - Vse, kar je označeno z \* so privzete vrednosti in jih ni
 potrebno spreminjati
 - Arduino IDE -> Tools:
-  - \* Flash Size: "4M(1M SPIFFS)"
+  - \* Flash Size: "4M"
   - \* Debug port: "Disabled"
   - \* Debug Level: "None"
-  - \* lwIP Variant: "V2 Prebuilt (MSS=536)"
+  - \* lwIP Variant: "V2 Lower Memory"
   - \* CPU Frequency: "80 MHz"
   - \* Upload speed: "921600"
 
