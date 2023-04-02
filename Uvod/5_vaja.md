@@ -11,7 +11,7 @@ Neke lastnosti WeMos D1 mini čipa:
 * Digitalni vhodi in izhodi: 11
 * Analogni vhod: 1 (napetost <= 3,2 V)
 
-### Povezljivost WeMos D1 mini 
+### Povezljivost D1 mini 
 
 | Wemos Pin  | Funkcija                            | ESP8266 Pin |
 |------------|-------------------------------------|-------------|
