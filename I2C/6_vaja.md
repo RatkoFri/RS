@@ -149,7 +149,7 @@ Primer: Kako zapisati vrednost v I2C napravo z naslovom 56 (0x38)
 // Na napravo z naslovom 56 zapišemo vredost val
 Wire.beginTransmission(56);
 Wire.write(val);
-Wire.endTransmition();
+Wire.endTransmission();
 ``` 
 
 ## Periferija: Paralelni I/O port PCF8574AN
